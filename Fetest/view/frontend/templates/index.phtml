@@ -1,0 +1,61 @@
+<div class="fetest">
+    <div id="btn-alert">
+        <button class="alert">
+            <span><?= $block->escapeHtml(__('Open Modal')) ?></span>
+        </button>
+    </div>
+
+    <button id="btn-magento">
+        <span><?= $block->escapeHtml(__('Open Magento Login Modal')) ?></span>
+    </button>
+
+    <button id="btn-login">
+        <span><?= $block->escapeHtml(__('Open Custom Login Modal')) ?></span>
+    </button>
+
+    <div id="modal-alert">
+        <div class="modal-body-content">
+            <h2><?= $block->escapeHtml(__('Title')) ?></h2>
+            <p><?= $block->escapeHtml(__('Content')) ?></p>
+        </div>
+    </div>
+
+    <div id="modal-login">
+        <div class="modal-body-content">
+            <div class="login-modal" id='authentication-popup-template' data-bind="scope: 'authentication-popup'">
+                <!-- ko template: getTemplate() -->
+                <!-- /ko  -->
+                <script type="text/x-magento-init">
+                    {
+                        "#authentication-popup-template": {
+                            "Magento_Ui/js/core/app": {
+                                "components": {
+                                    "authentication-popup": {
+                                        "component": "AHT_Fetest/js/authentication-popup",
+                                        "template" : "AHT_Fetest/authentication-popup",
+                                        "children": {
+                                            "messages":{
+                                                "component":"Magento_Ui/js/view/messages",
+                                                "displayArea":"messages"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "AHT_Fetest/js/modal" : {
+            }
+        }
+    }
+</script>

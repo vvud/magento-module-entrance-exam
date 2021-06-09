@@ -1,0 +1,21 @@
+<div class="component-wrapper">
+    <div class="field">
+        <label class="label" for="email"><span data-bind="i18n: 'Tạo người dùng mới'"></span></label>
+        <div class="control">
+            <input name="customername"
+                   id="customername"
+                   type="text"
+                   class="input-text"
+                   data-bind="value: customerData">
+        </div>
+    </div>
+    <div class="primary">
+        <button type="button" class="action action-login secondary" data-bind="click: addNewCustomer">
+            <span data-bind="i18n: 'Lưu'"></span>
+        </button>
+    </div>
+ 
+    <div class="customer-list" style="width: 20%;background: #eee;margin-top: 10px;" data-bind="foreach: customerName">
+        <li data-bind="text: name"></li>
+    </div>
+</div>

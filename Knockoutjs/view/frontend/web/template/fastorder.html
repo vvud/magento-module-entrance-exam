@@ -1,0 +1,92 @@
+<div>
+    <div class="search__form">
+        <div class="search__form--input">
+            <input type="text" class="form-control" placeholder="Search product name or SKU"
+                data-bind="value: search, valueUpdate: 'afterkeydown',event: {keyup: evenSearch}, hasFocus: isSelected">
+        </div>
+        <div class="search__form--result" data-bind="visible: result_search().length == 0 && isSelected">Not found</div>
+        <div class="search__form--result"
+            data-bind="foreach: result_search, visible: result_search().length && result_search_has_focus, event: { mouseover: function(){result_search_focus(true)}, mouseout: function(){result_search_focus(false)} }">
+            <div class="search__item">
+                <div class="search__item--left">
+                    <img src='' data-bind="attr: {src: src}" alt="img product" width="50px" height="50px">
+                </div>
+                <div class="search__item--right">
+                    <div class="search__item--group">
+                        <p class='name' data-bind="text: name"></p>
+                        <p class='sku'>SKU#: <span class="sku-code" data-bind="text: sku"></span></p>
+                        <p class='price' data-bind="text: price"></p>
+                    </div>
+                    <div class="search__item--checkbox">
+                        <input type="checkbox" data-bind="checked: isCheck, event: { change: $parent.check }">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-flush">
+        <table class="table-scroll small-first-col">
+            <thead>
+                <tr>
+                    <th>SKU</th>
+                    <th>PRODUCT</th>
+                    <th>QTY</th>
+                    <th>SUBTOTAL</th>
+                </tr>
+            </thead>
+            <tbody class="body-half-screen" data-bind="foreach: productList">
+                <tr>
+                    <td data-bind="text: sku"></td>
+                    <td>
+                        <div class="product__detail">
+                            <div class="product__detail--left">
+                                <img src='' data-bind="attr: {src: product().src}" alt="">
+                            </div>
+                            <div class="product__detail--right">
+                                <div class="name" data-bind="text: product().name"></div>
+                                <div class="product__detail">
+                                    <span data-bind="text: product().price">.00</span>
+                                </div>
+                            </div>
+                            <div class="product__detail--tool">
+                                <span class="icon-trash" data-bind="click: $parent.delete"></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="qty">
+                            <button data-bind="click: qtyDown">-</button>
+                            <input type="number" data-bind="value: qty">
+                            <button data-bind="click: qtyUp">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <p>
+                            <span class="total-price"><span data-bind="text: symbol"></span> <span data-bind="text: total"></span> </span>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th>
+                        <p>Filter lines Number: <span data-bind="text: countLine"></span></p>
+                    </th>
+                    <th>
+                        <p>Total Qty: <span data-bind="text: countQty"></span></p>
+                    </th>
+                    <th>
+                        <p>Sub Total: &nbsp;<span class="total-price"><span data-bind="text: symbol"></span> <span data-bind="text: subTotal"></span></span></p>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="add-cart">
+            <button type="submit" data-bind="click: addtocart, visible: productList().length > 0" class="action tocart primary">
+                Add to cart
+            </button>
+        </div>
+    </div>
+</div>

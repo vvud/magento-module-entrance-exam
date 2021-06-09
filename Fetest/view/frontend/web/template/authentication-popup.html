@@ -1,0 +1,48 @@
+<div class="block-authentication" data-bind="afterRender: setModalElement, blockLoader: isLoading">
+    <div class="block block-customer-login" data-bind="attr: {'data-label': $t('or')}">
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
+        <!--/ko-->
+        <!-- ko foreach: getRegion('before') -->
+        <!-- ko template: getTemplate() -->
+        <!-- /ko -->
+        <!-- /ko -->
+        <div class="block-content" aria-labelledby="block-customer-login-heading">
+            <form class="form form-login" method="post" data-bind="event: {submit: login }" id="login-form">
+                <div class="fieldset login" data-bind="attr: {'data-hasrequired': $t('* Required Fields')}">
+                    <div class="field email required">
+                        <div class="control">
+                            <input name="username" id="customer-email" type="email" class="input-text"
+                                data-mage-init='{"mage/trim-input":{}}' data-bind="attr: {autocomplete: autocomplete}"
+                                data-validate="{required:true, 'validate-email':true}">
+                        </div>
+                    </div>
+                    <div class="field password required">
+                        <div class="control">
+                            <input name="password" type="password" class="input-text" id="pass"
+                                data-bind="attr: {autocomplete: autocomplete}" data-validate="{required:true}">
+                        </div>
+                    </div>
+                    <!-- ko foreach: getRegion('additional-login-form-fields') -->
+                    <!-- ko template: getTemplate() -->
+                    <!-- /ko -->
+                    <!-- /ko -->
+                    <div class="actions-toolbar">
+                        <div class="primary">
+                            <button type="submit" class="btn-submit" name="send" id="send2">
+                                <span data-bind="i18n: 'Login'"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="login-modal-extend">
+                        <span>Not registered?</span>
+                        <a data-bind="attr: {href: registerUrl}">
+                            <span data-bind="i18n: 'Create an Account'"></span>
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

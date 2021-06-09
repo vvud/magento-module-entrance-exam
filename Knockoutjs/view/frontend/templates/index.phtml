@@ -1,0 +1,34 @@
+<?php
+
+/** @var \AHT\Knockoutjs\Block\Template $block */
+?>
+
+<div id='fastorder-template' data-bind="scope: 'fastorder'">
+    <!-- ko template: getTemplate() -->
+    <!-- /ko  -->
+    <script type="text/x-magento-init">
+        {
+        "#fastorder-template": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "fastorder": {
+                        "component": "AHT_Knockoutjs/js/fastorder",
+                        "template" : "AHT_Knockoutjs/fastorder"
+                    }
+                }
+            }
+        }
+    }
+</script>
+</div>
+
+
+<script>
+    require([
+        'mage/url',
+        'Magento_Ui/js/block-loader'
+    ], function(url, blockLoader) {
+        blockLoader("<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>");
+        return url.setBaseUrl('<?php /* @escapeNotVerified */ echo $block->getBaseUrl(); ?>');
+    })
+</script>

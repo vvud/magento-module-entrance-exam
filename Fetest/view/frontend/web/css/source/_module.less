@@ -1,0 +1,65 @@
+& when (@media-common = true) {
+    @background__login--modal: #8ac06b;
+    @color__login-input: #f9f2bd;
+    @color__green: #4caf50;
+    @color__registered-text: #e2dbdc;
+    @font-size-13: 1.3rem;
+    .fetest {
+        #btn-alert, #btn-magento, #btn-login {
+            display: inline-block;
+            margin-right: 25px;
+        }
+    }
+    .login-modal {
+        background-color: @background__login--modal;
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        .block-authentication {
+            max-width: 300px;
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            padding: 30px;
+            .lib-css(transform, translate(-50%, -50%),1);
+            background-color: @color-white; 
+
+            .block-content .control .input-text {
+                background: @color__login-input;
+            }
+
+            .primary {
+                width: 100%;
+
+                button {
+                    width: 100%;
+                    background-color: @color__green;
+                    span {
+                        color: @color-white;
+                    }
+                }
+            }
+            .login-modal-extend {
+                text-align: center;
+                font-size: @font-size-13;
+                a span {
+                    color: @background__login--modal;
+                }
+                a:hover {
+                    text-decoration: none;  
+                    span {
+                        color: @color__green;
+                    }
+                }
+                span {
+                    color: @color__registered-text;
+                }
+            }
+        }
+
+        .fieldset:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
