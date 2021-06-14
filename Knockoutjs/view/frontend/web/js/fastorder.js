@@ -9,7 +9,7 @@ define([
 ],
 function (ko, $, Component, urlBuilder, storage, customerData, priceUtils) {
     'use strict';
-    
+
     function getFormattedPrice (price) {
         var priceFormat = {
             decimalSymbol: '.',
@@ -100,7 +100,6 @@ function (ko, $, Component, urlBuilder, storage, customerData, priceUtils) {
             ko.utils.arrayFilter(self.productList(), function (product) {
                 totalQty = totalQty + product.qty(); console.log(totalQty);
             });
-
             return totalQty;
         })
 

@@ -12,20 +12,7 @@
             <argument name="eventObject" xsi:type="string">field_grid_collection</argument>
         </arguments>
     </virtualType>
-
-    <virtualType name="AHT\Portfolio\Model\ResourceModel\Category\Grid\Collection">
-        <arguments>
-            <argument name="mainTable" xsi:type="string">AHT_Categories</argument>
-            <argument name="resourceModel" xsi:type="string">AHT\Portfolio\Model\ResourceModel\Category</argument>
-        </arguments>
-    </virtualType>
-
-    <virtualType name="AHT\Portfolio\Model\ResourceModel\Images\Grid\Collection">
-        <arguments>
-            <argument name="mainTable" xsi:type="string">AHT_Images</argument>
-            <argument name="resourceModel" xsi:type="string">AHT\Portfolio\Model\ResourceModel\Images</argument>
-        </arguments>
-    </virtualType>
+    
     <!-- register our data source: Dang ky nguon du lieu -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
@@ -34,54 +21,5 @@
             </argument>
         </arguments>
     </type>
-
-    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
-        <arguments>
-            <argument name="collections" xsi:type="array">
-                <item name="aht_category_listing_data_source" xsi:type="string">AHT\Portfolio\Model\ResourceModel\Category\Grid\Collection</item>
-            </argument>
-        </arguments>
-    </type>
-
-     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
-        <arguments>
-            <argument name="collections" xsi:type="array">
-                <item name="aht_image_listing_data_source" xsi:type="string">AHT\Portfolio\Model\ResourceModel\Images\Grid\Collection</item>
-            </argument>
-        </arguments>
-    </type>
     <!-- End Configure -->
-
-    <!-- API -->
-    <preference for="AHT\Portfolio\Api\PortfolioRepositoryInterface" type="AHT\Portfolio\Model\PortfolioRepository" />
-    <preference for="AHT\Portfolio\Api\CategoryRepositoryInterface" type="AHT\Portfolio\Model\CategoryRepository" />
-    <preference for="AHT\Portfolio\Api\Data\PortfolioInterface" type="AHT\Portfolio\Model\Portfolio"/>
-
-    <!-- Upload IMG -->
-    <virtualType name="VirtualTypeName" type="Magento\Catalog\Model\ImageUploader">
-        <arguments>
-            <argument name="baseTmpPath" xsi:type="string">portfolio/image</argument>
-            <argument name="basePath" xsi:type="string">portfolio/image</argument>
-            <argument name="allowedExtensions" xsi:type="array">
-                <item name="jpg" xsi:type="string">jpg</item>
-                <item name="jpeg" xsi:type="string">jpeg</item>
-                <item name="gif" xsi:type="string">gif</item>
-                <item name="png" xsi:type="string">png</item>
-                <item name="svg" xsi:type="string">svg</item>
-            </argument>
-        </arguments>
-    </virtualType>
-
-    <!-- Plugin -->
-     <type name="Magento\Catalog\Model\Product">
-        <plugin name="cache_price1" type="AHT\Portfolio\Plugin\Product2" sortOrder="10" />
-    </type>
-
-    <type name="Magento\Catalog\Model\Product">
-        <plugin name="cache_price2" type="AHT\Portfolio\Plugin\Product1" sortOrder="20" />
-    </type>
-
-    <type name="Magento\Catalog\Model\Product">
-        <plugin name="cache_price3" type="AHT\Portfolio\Plugin\Product3" sortOrder="30" />
-    </type>
 </config>

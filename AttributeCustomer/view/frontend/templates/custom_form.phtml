@@ -1,0 +1,79 @@
+<?php
+/** @var \AHT\AttributeCustomer\Block\Template $block */
+
+    $helper = $this->helper('AHT\AttributeCustomer\Helper\Data');
+    $countryCode = $helper->getCountryCode();
+
+?>
+
+<fieldset class="fieldset additional_info" data-hasrequired="* Required Fields">
+    <legend class="legend"><span><?= $block->escapeHtml(__('Custom Information')) ?></span></legend><br>
+    
+    <div class="field">
+        <label for="country_code" class="label">Country</label>
+        <div class="control">
+        <select name="country_code" id="country_code">
+            <?php
+                foreach ($countryCode as $key => $value) :
+            ?>
+            <option value="<?= $value ?>"><?= $block->getCountryName($key) . " (+" . $value . ")" ?></option>
+            <?php
+                endforeach
+            ?>
+        </select>
+        </div>
+    </div>
+
+    <div class="field phone required">
+        <label for="contact_phone_number" class="label"><span><?= $block->escapeHtml(__('Contact Phone Number')) ?></span></label>
+        <div class="control">
+            <input type="text" name="contact_phone_number_before" id="contact_phone_number" value="" 
+            title="Phone" class="input-text">
+            <input type="hidden" name="contact_phone_number" id="contact_phone_number_after">
+        </div>
+    </div>
+    
+    <div class="field company required">
+        <label for="company_type" class="label"><span><?= $block->escapeHtml(__('Company Type')) ?></span></label>
+        <div class="control">
+            <select name='company_type' id="company_type" class='form-control' title="Company Type">
+                <option value="" ><?= $block->escapeHtml(__('Select Company Type')) ?></option>
+                <option value="0"><?= $block->escapeHtml(__('CBD Manufacturer')) ?></option>
+                <option value="1"><?= $block->escapeHtml(__('CBD Brand and Marketing company')) ?></option>
+                <option value="2"><?= $block->escapeHtml(__('CBD Extractor')) ?></option>
+                <option value="3"><?= $block->escapeHtml(__('Other')) ?></option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="field organization_name required">
+        <label for="organization_name" class="label">
+            <span><?= $block->escapeHtml(__('Organization Name')) ?></span>
+        </label>
+        <div class="control">   
+            <input type="text" name="organization_name" title="Organization Name" id="organization_name" class="input-text" autocomplete="off">
+        </div>
+    </div>
+</fieldset>
+
+<script>
+require(['jquery'], function ($){
+    $(document).ready(function(){
+        $('.organization_name').hide();
+        $('#company_type').change(function (){
+            if ($(this).val() == 3) {
+                $('.organization_name').show();
+                
+            } else {
+                $('.organization_name').hide();
+            }
+        });
+
+        $('#contact_phone_number').change(function (){
+            var country_code = $('#country_code').val();
+            var phone_number = $(this).val().replace(/^0+/, '');
+            $('#contact_phone_number_after').val("+" + country_code + phone_number);
+        });
+    });
+});
+</script>
