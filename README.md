@@ -1,12 +1,8 @@
 # Magento Module Entrance Exam
 Functionality: Add Attributes, Sales Agent Feature, KnockOutJs, Modal Popup, Custome Checkout, Custome Fee &amp; Quote Total,...
 
-# Functionality:
-
-This module allows us to add/remove seat reservation and calculate total charge dynamically using Knockout JS.
-
 ## Install
-
+```sh
 Copy module and put it in : app/code/AHT/
 
 Run: enable module in commandline in root folder:
@@ -14,8 +10,11 @@ Run: enable module in commandline in root folder:
 php bin/magento module:enable AHT_module-name
 
 php bin/magento setup:upgrade
+```
 
-## Attribute Customer
+
+
+# Attribute Customer
 ```sh
 Add the following fields for customers to complete when registering:
 1. Organization Name (Textfield) 
@@ -33,7 +32,9 @@ If Other - please specify (Organization Name only appear if "Other" is selected 
 ### *Attribute Customer Admin:*
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/AttributeCustomer/admin.png" alt="Attribute Customer Admin">
 
-## Frontend Test: Modal
+
+
+# Frontend Test: Modal
 ```sh
 1. Create a new frontend page
 Create a new page in frontend that has Magento Layout, page’s url: http://<magento_baseurl>/<module_route>
@@ -57,7 +58,9 @@ This Modal contain: a login window, e.g: (notice: you can style it yourself)
 ### *Button 1*
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Fetest/3.png" alt="Button 3">
 
-## KnockOut Js:
+
+
+# KnockOut Js:
 
 ```sh
 (Knockout Js (KO) is an important aspect in Magento, KO is a js library that is used widely, in almost every page in Magento)
@@ -66,31 +69,74 @@ http://learn.knockoutjs.com/+
 Use knockout js for fast order function. Ajax Filter product
 ```
 
-### Images:
+### *Images*:
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/1.png" alt="1">
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/2.png" alt="2">
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/3.png" alt="3">
 
-### Others Knockout js test:
+### *Others Knockout js test*:
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/practice.png" alt="practice">
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/test.png" alt="test">
 
-## Owl Carousel:
+
+
+# Owl Carousel:
 ```sh
 use Owl Carousel in Magento
 ```
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Owl/owl.png" alt="Owl Carousel">
 
-## Custom Checkout:
+
+
+# Custom Checkout:
 ```sh
 ```
 
-## Custom Fee & Quote Total
+
+
+# Custom Fee & Quote Total
 ```sh
 ```
 
-## Sales Agent
+
+
+# Sales Agent
 ```sh
+1. Introduction
+    - Implement a system consisting of Sales Agent (SA).
+    - SA is a customer as well. 
+    - SA will be assigned with products, and receive commission when customer buy their product.
+
+2. New Attributes
+    Customer: is_sales_agent (boolean)
+    Product: sale_agent_id, commission_type (fixed/percent), commission_value
+
+3. Tables
+    entity_id
+    order_id
+    order_item_id
+    order_item_sku
+    order_item_price
+    commision_percent
+    commission_value
+
+- Be sure to apply an appropriate data type to each field. ( You can edit the table structure if you feel necessary )
+
+4. Features
+a. Backend:
+    - Admin will be able to assign SA, commission type, value to each product.
+    - Commission report. Only do 1 out of 2 below:
+    - According to Product, filterable by SKU with Ajax load.
+    - According to SA, filterable by Email with Ajax load.
+b. Frontend:
+    - When customer successfully place an order, SA will immediately receive commission.
+    - When a SA logged in to his account, he can preview (somewhere in My Account) all product assigned to him (you should display this with a table).
+    - Product name, sku, url to the product
+    - Commission type, commission value..
+c. Global:
+    - SA’s first name will be displayed as 
+    - “Sales Agent: <firstname>” instead of “<firstname>” on all pages of the website
+
 ```
 
 #
