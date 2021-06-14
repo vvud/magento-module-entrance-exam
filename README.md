@@ -5,9 +5,9 @@ Functionality: Add Attributes, Sales Agent Feature, KnockOutJs, Modal Popup, Cus
 
 This module allows us to add/remove seat reservation and calculate total charge dynamically using Knockout JS.
 
-# Install
+## Install
 
-Copy Knockout module and put it in : app/code/AHT/Knockout
+Copy module and put it in : app/code/AHT/
 
 Run: enable module in commandline in root folder:
 
@@ -15,77 +15,82 @@ php bin/magento module:enable AHT_module-name
 
 php bin/magento setup:upgrade
 
-# Demo
-Access demo url : http://your_locahost/knockout/
-
-#
-
 ## Attribute Customer
-
-### Update 06/02/2021:*
-
 ```sh
-
-- Edit Slider: Non-use Owl Carousel Lib
-
-- Top-Selling section
-
+Add the following fields for customers to complete when registering:
+1. Organization Name (Textfield) 
+2. Contact Phone Number including country code (Textfield)
+3. Please select your Company Type (Dropdown)
+- CBD Manufacturer
+- CBD Brand and Marketing company
+- CBD Extractor
+- Other
+If Other - please specify (Organization Name only appear if "Other" is selected )
 ```
-*
+### *Attribute Customer Frontend:*
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/AttributeCustomer/fe.png" alt="Attribute Customer Frontend">
 
-### Update 08/02/2021:
+### *Attribute Customer Admin:*
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/AttributeCustomer/admin.png" alt="Attribute Customer Admin">
 
+## Frontend Test: Modal
 ```sh
-
-- Edit News Section, Newsletter Section and Brand Section
-
-- Add Zoom and Rotate Animation
-
-- Edit image file type
-
+1. Create a new frontend page
+Create a new page in frontend that has Magento Layout, page’s url: http://<magento_baseurl>/<module_route>
+Add a button to the content of this page, e.g:
 ```
-
-### Update 09/02/2021:
-
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Fetest/2.png" alt="Frontend Test">
 ```sh
-
-- Edit Footer Section
-
-- Responsive all media devices
-
+2. Learn how to use RequireJS, load out “jquery” library (already in Magento)
+Whenever the button created above clicked, alert “Hello World!”
+Now that the alert works, delete it. Use “magento alert modal” instead, find out how to use “magento alert modal”
+Create a 2nd button. Whenever clicked, a Modal (a concept in magento, simply it’s a popup javascript window) is drop downed.
+This Modal contain: a login window, e.g: (notice: you can style it yourself)
 ```
 
-### Update 10/02/2021:
+### *Button 1*
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Fetest/1.png" alt="Button 1">
+
+### *Button 2*
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Fetest/3.png" alt="Button 2">
+
+### *Button 1*
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Fetest/3.png" alt="Button 3">
+
+## KnockOut Js:
 
 ```sh
-
-- Coding Standard 
-
-- Comment Codes
-
-- Optimal Codes
-
+(Knockout Js (KO) is an important aspect in Magento, KO is a js library that is used widely, in almost every page in Magento)
+Read an Overview about KnockoutJs, finish all the tutorial: +http://knockoutjs.com/
+http://learn.knockoutjs.com/+
+Use knockout js for fast order function. Ajax Filter product
 ```
 
-### Update 17/02/2021:
+### Images:
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/1.png" alt="1">
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/2.png" alt="2">
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/3.png" alt="3">
 
+### Others Knockout js test:
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/practice.png" alt="practice">
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/KOjs/test.png" alt="test">
+
+## Owl Carousel:
 ```sh
+use Owl Carousel in Magento
+```
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Owl/owl.png" alt="Owl Carousel">
 
-- Edit Banner, News and Brand: Add "a" tag
-
-- Edit newsletter input section max width 768px media
-
-- Edit footer lineheight text
-
+## Custom Checkout:
+```sh
 ```
 
-### Update 25/02/2021:
-
+## Custom Fee & Quote Total
 ```sh
+```
 
-- Edit webkit, menu responsive, newsletter-title line height, footer
-- Remove Slick-nav js library
-
+## Sales Agent
+```sh
 ```
 
 #
