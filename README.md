@@ -41,6 +41,7 @@ Create a new page in frontend that has Magento Layout, page’s url: http://<mag
 Add a button to the content of this page, e.g:
 ```
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Fetest/2.png" alt="Frontend Test">
+
 ```sh
 2. Learn how to use RequireJS, load out “jquery” library (already in Magento)
 Whenever the button created above clicked, alert “Hello World!”
