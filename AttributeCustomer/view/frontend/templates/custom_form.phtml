@@ -1,22 +1,17 @@
-<?php
-/** @var \AHT\AttributeCustomer\Block\Template $block */
-
-    $helper = $this->helper('AHT\AttributeCustomer\Helper\Data');
-    $countryCode = $helper->getCountryCode();
-
-?>
-
 <fieldset class="fieldset additional_info" data-hasrequired="* Required Fields">
     <legend class="legend"><span><?= $block->escapeHtml(__('Custom Information')) ?></span></legend><br>
-    
-    <div class="field">
+
+    <div class="field country" style="display: inline-block;">
         <label for="country_code" class="label">Country</label>
         <div class="control">
         <select name="country_code" id="country_code">
             <?php
+                /** @var \AHT\AttributeCustomer\Block\Template $block */
+                $helper = $this->helper('AHT\AttributeCustomer\Helper\Data');
+                $countryCode = $helper->getCountryCode();
                 foreach ($countryCode as $key => $value) :
             ?>
-            <option value="<?= $value ?>"><?= $block->getCountryName($key) . " (+" . $value . ")" ?></option>
+            <option value="<?= $value ?>"><?= $block->getCountryName($key)?></option>
             <?php
                 endforeach
             ?>
@@ -24,7 +19,7 @@
         </div>
     </div>
 
-    <div class="field phone required">
+    <div class="field phone" style="display: inline-block; width: 66.3333%;">
         <label for="contact_phone_number" class="label"><span><?= $block->escapeHtml(__('Contact Phone Number')) ?></span></label>
         <div class="control">
             <input type="text" name="contact_phone_number" id="contact_phone_number" value="" 
@@ -32,7 +27,7 @@
         </div>
     </div>
     
-    <div class="field company required">
+    <div class="field company">
         <label for="company_type" class="label"><span><?= $block->escapeHtml(__('Company Type')) ?></span></label>
         <div class="control">
             <select name='company_type' id="company_type" class='form-control' title="Company Type">
@@ -45,7 +40,7 @@
         </div>
     </div>
     
-    <div class="field organization_name required">
+    <div class="field organization_name">
         <label for="organization_name" class="label">
             <span><?= $block->escapeHtml(__('Organization Name')) ?></span>
         </label>
@@ -56,23 +51,25 @@
 </fieldset>
 
 <script>
-require(['jquery'], function ($){
-    $(document).ready(function(){
-        $('.organization_name').hide();
-        $('#company_type').change(function (){
-            if ($(this).val() == 3) {
-                $('.organization_name').show();
-                
-            } else {
-                $('.organization_name').hide();
-            }
-        });
+    require(['jquery'], function ($){
+        $(document).ready(function(){
 
-        $('#contact_phone_number').change(function (){
-            var country_code = $('#country_code').val();
-            var phone_number = $(this).val().replace(/^0+/, '');
-            $('#contact_phone_number').val("+" + country_code + phone_number);
+            // show organization name when choose company type is other option 
+            $('.organization_name').hide();
+            $('#company_type').change(function (){
+                if ($(this).val() == 3) {
+                    $('.organization_name').show();
+                    
+                } else {
+                    $('.organization_name').hide();
+                }
+            });
+
+            // assign country code to phone number
+            $( "#country_code" ).focusout(function() {
+                var country_code = $('#country_code').val();
+                $('#contact_phone_number').val("+" + country_code);
+            });
         });
     });
-});
 </script>
