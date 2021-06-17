@@ -27,7 +27,7 @@ Add the following fields for customers to complete when registering:
 If Other - please specify (Organization Name only appear if "Other" is selected )
 ```
 ### *Attribute Customer Frontend:*
-<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/AttributeCustomer/fe.png" alt="Attribute Customer Frontend">
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/AttributeCustomer/frontend.png" alt="Attribute Customer Frontend">
 
 ### *Attribute Customer Admin:*
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/AttributeCustomer/admin.png" alt="Attribute Customer Admin">
