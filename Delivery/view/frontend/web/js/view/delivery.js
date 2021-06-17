@@ -4,8 +4,9 @@ define([
     'underscore',
     'Magento_Checkout/js/model/step-navigator',
     'mage/url',
+    'Magento_Checkout/js/model/quote',
     'mage/storage',
-], function (ko, Component, _, stepNavigator, urlBuilder, storage) {
+], function (ko, Component, _, stepNavigator, urlBuilder, quote, storage) {
     'use strict';
 
     /**
@@ -67,19 +68,21 @@ define([
         navigateToNextStep: function () {
             var date = document.getElementById('date').value;
             var note = document.getElementById('note').value;
+            var quoteId = quote.getQuoteId();
             var serviceUrl = urlBuilder.build('delivery/index/index');
+            // var serviceUrl = urlBuilder.build('delivery/index/savequote');
             stepNavigator.next();
 
             return storage.post(
                 serviceUrl,
-                JSON.stringify({'date': date, 'note': note}),
+                JSON.stringify({'date': date, 'note': note, quoteId:quoteId}),
                 false
             ).done(function (response) {
                 console.log(response);
             }
             ).fail(function (response) {
-                // code khi fail
-                // console.log("không nhận được data");
+                // notification when code error
+                console.log("error");
             });
         }
     });

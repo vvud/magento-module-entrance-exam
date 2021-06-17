@@ -1,0 +1,18 @@
+<?php
+/** @var \AHT\Checkout\Block\Template $block */
+    $order = $block->getOrder();
+?>
+<div class="block block-order-date">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('Delivery Information')) ?></strong></div>
+    <div class="block-content">
+        <!-- <div class="block-title"> -->
+        <div class="box box-order-delivery">
+            <strong>Delivery Date:</strong>
+            <span><?= $order->getDeliveryDate()?></span>
+        </div>
+        <div class="box box-order-delivery">
+            <strong>Delivery Note:</strong>
+            <span><?= $order->getDeliveryNote()?></span>
+        </div>
+    </div>
+</div>
