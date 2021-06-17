@@ -27,9 +27,8 @@
     <div class="field phone required">
         <label for="contact_phone_number" class="label"><span><?= $block->escapeHtml(__('Contact Phone Number')) ?></span></label>
         <div class="control">
-            <input type="text" name="contact_phone_number_before" id="contact_phone_number" value="" 
+            <input type="text" name="contact_phone_number" id="contact_phone_number" value="" 
             title="Phone" class="input-text">
-            <input type="hidden" name="contact_phone_number" id="contact_phone_number_after">
         </div>
     </div>
     
@@ -72,7 +71,7 @@ require(['jquery'], function ($){
         $('#contact_phone_number').change(function (){
             var country_code = $('#country_code').val();
             var phone_number = $(this).val().replace(/^0+/, '');
-            $('#contact_phone_number_after').val("+" + country_code + phone_number);
+            $('#contact_phone_number').val("+" + country_code + phone_number);
         });
     });
 });

@@ -2,8 +2,10 @@ define([
     'ko',
     'uiComponent',
     'underscore',
-    'Magento_Checkout/js/model/step-navigator'
-], function (ko, Component, _, stepNavigator) {
+    'Magento_Checkout/js/model/step-navigator',
+    'mage/url',
+    'mage/storage',
+], function (ko, Component, _, stepNavigator, urlBuilder, storage) {
     'use strict';
 
     /**
@@ -55,15 +57,30 @@ define([
          * for switching to your custom step
          * When the user navigates to the custom step via url anchor or back button we_must show step manually here
          */
-        navigate: function () {
-            this.isVisible(true);
+         navigate: function () {
+
         },
 
         /**
-         * @returns void
-         */
+        * @returns void
+        */
         navigateToNextStep: function () {
+            var date = document.getElementById('date').value;
+            var note = document.getElementById('note').value;
+            var serviceUrl = urlBuilder.build('delivery/index/index');
             stepNavigator.next();
+
+            return storage.post(
+                serviceUrl,
+                JSON.stringify({'date': date, 'note': note}),
+                false
+            ).done(function (response) {
+                console.log(response);
+            }
+            ).fail(function (response) {
+                // code khi fail
+                // console.log("không nhận được data");
+            });
         }
     });
 });

@@ -1,22 +1,47 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="checkout.root">
-                <arguments>
-                    <argument name="jsLayout" xsi:type="array">
-                        <item name="components" xsi:type="array">
-                            <item name="checkout" xsi:type="array">
-                                <item name="children" xsi:type="array">
-                                    <item name="steps" xsi:type="array">
-                                        <item name="children" xsi:type="array">
-                                            <!-- The new step you add -->
-                                            <item name="check-login-step" xsi:type="array">
-                                                <item name="component" xsi:type="string">AHT_Delivery/js/view/delivery</item>
-                                                    <!--To display step content before shipping step "sortOrder" value should be < 1-->
-                                                    <!--To display step content between shipping step and payment step  1 < "sortOrder" < 2 -->
-                                                    <!--To display step content after payment step "sortOrder" > 2 -->
-                                                <item name="sortOrder" xsi:type="string">2</item>
-                                                <item name="children" xsi:type="array">
-                                                    <!--add here child component declaration for your step-->
+        <referenceBlock  name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <!-- The new step you add -->
+                                        <item name="delivery-step" xsi:type="array">
+                                            <item name="component" xsi:type="string">AHT_Delivery/js/view/delivery</item>
+                                                <!--To display step content before shipping step "sortOrder" value should be < 1-->
+                                                <!--To display step content between shipping step and payment step  1 < "sortOrder" < 2 -->
+                                                <!--To display step content after payment step "sortOrder" > 2 -->
+                                            <item name="sortOrder" xsi:type="string">2</item>
+                                            <item name="children" xsi:type="array">
+                                                <!--add here child component declaration for your step-->
+                                            </item>
+                                        </item>
+                                        <item name="shipping-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="shippingAddress" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="shipping-address-fieldset" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="region_id" xsi:type="array">...</item>
+                                                                <item name="postcode" xsi:type="array">...</item>
+                                                                <item name="company" xsi:type="array">
+                                                                    <item name="validation" xsi:type="array">
+                                                                        <item name="min_text_length" xsi:type="number">0</item>
+                                                                        <item name="max_text_length" xsi:type="number">9</item>
+                                                                        <item name="letters-only" xsi:type="boolean">true</item>
+                                                                        <item name="required-entry" xsi:type="boolean">true</item>
+                                                                        <item name="max-words" xsi:type="number">2</item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="fax" xsi:type="array">...</item>
+                                                                <item name="country_id" xsi:type="array">...</item>
+                                                                <item name="telephone" xsi:type="array">...</item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
                                                 </item>
                                             </item>
                                         </item>
@@ -24,8 +49,9 @@
                                 </item>
                             </item>
                         </item>
-                    </argument>
-                </arguments>
+                    </item>
+                </argument>
+            </arguments>
         </referenceBlock>
     </body>
 </page>

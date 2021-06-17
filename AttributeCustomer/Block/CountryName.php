@@ -24,8 +24,8 @@ class CountryName extends \Magento\Framework\View\Element\Template
         
     public function getCountryName($countryCode)
     {    
-    $country = $this->_countryFactory->create()->loadByCode($countryCode);
-    return $country->getName();
+        $country = $this->_countryFactory->create()->loadByCode($countryCode);
+        return $country->getName();
     }
 }
 // source: https://magento.stackexchange.com/questions/159494/how-to-get-country-name-from-country-code-in-magento-2

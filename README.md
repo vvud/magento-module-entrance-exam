@@ -81,14 +81,6 @@ Use knockout js for fast order function. Ajax Filter product
 
 
 
-# Owl Carousel - Testimonial:
-```sh
-use Owl Carousel in Magento
-```
-<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Owl/owl.png" alt="Owl Carousel">
-
-
-
 # Custom Checkout - Delivery:
 ```sh
 1. Add a step page checkout for customer to input delivery date and delivery comment
@@ -96,6 +88,7 @@ Admin can check and edit delivery date and delivery comment in backend (Order de
 2. Use code to Company input is required.
 ```
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/CustomCheckout/required.png" alt="Company Required">
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/CustomCheckout/addStep.png" alt="Delivery Step">
 
 
 

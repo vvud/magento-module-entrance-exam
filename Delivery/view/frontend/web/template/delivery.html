@@ -5,12 +5,15 @@
          class="step-content"
          data-role="content">
         <form data-bind="submit: navigateToNextStep" novalidate="novalidate">
-            <!-- code in here -->
             <div class="delivery-checkout">
-                <!-- ko foreach: getRegion('field-group-delivery') -->
-                <!-- ko template: getTemplate() -->
-                <!-- /ko -->
-                <!-- /ko -->
+                <label class="label" for="date">Delivery date</label>
+                <div class="control">
+                    <input class="input-text" type="date" name="date" aria-required="true" aria-invalid="false" id="date">
+                </div>
+                <div class="primary">
+                    <label>Delivery Note</label>
+                    <textarea rows="10" cols="50" name="note" id="note"></textarea>
+                </div>
             </div>
             <div class="actions-toolbar">
                 <div class="primary">
