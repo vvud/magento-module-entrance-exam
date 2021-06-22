@@ -44,7 +44,6 @@ define([
             }
         },
 
-
         /**
          * Provide login action
          *

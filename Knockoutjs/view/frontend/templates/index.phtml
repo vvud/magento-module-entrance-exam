@@ -21,14 +21,3 @@
     }
 </script>
 </div>
-
-
-<script>
-    require([
-        'mage/url',
-        'Magento_Ui/js/block-loader'
-    ], function(url, blockLoader) {
-        blockLoader("<?php /* @escapeNotVerified */ echo $block->getViewFileUrl('images/loader-1.gif'); ?>");
-        return url.setBaseUrl('<?php /* @escapeNotVerified */ echo $block->getBaseUrl(); ?>');
-    })
-</script>

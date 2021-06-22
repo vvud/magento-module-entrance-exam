@@ -38,3 +38,4 @@ require([
         auth.showModal();
     });
 })
+// https://mage2.pro/t/topic/924

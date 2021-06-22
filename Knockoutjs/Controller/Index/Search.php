@@ -83,11 +83,6 @@ class Search extends \Magento\Framework\App\Action\Action
      */
     public function execute()
     {
-        // if (!$this->getRequest()->isAjax()) {
-        //     $this->_forward('noroute');
-        //     return;
-        // }
-
         $resultJson = $this->jsonFactory->create();
         return $resultJson->setData($this->getCollection());
     }
@@ -116,10 +111,7 @@ class Search extends \Magento\Framework\App\Action\Action
             $value['src'] = $this->imageHelper
                 ->init($value, 'product_base_image')
                 ->getUrl();
-            // $productTypeInstance = $_objectManager->get('Magento\ConfigurableProduct\Model\Product\Type\Configurable');
-            // $value['options'] = $productTypeInstance->getConfigurableAttributesAsArray($value);
-            // dd($_objectManager->get('Magento\ConfigurableProduct\Model\Product\Type\Configurable')->getConfigurableAttributesAsArray($value));
-        }
+            }
 
         return [
             'data' => array_values($data->toArray()),

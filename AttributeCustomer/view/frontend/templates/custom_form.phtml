@@ -66,9 +66,9 @@
             });
 
             // assign country code to phone number
-            $( "#country_code" ).focusout(function() {
+            $( "#country_code" ).change(function() {
                 var country_code = $('#country_code').val();
-                $('#contact_phone_number').val("+" + country_code);
+                $('#contact_phone_number').val("+" + country_code + " ");
             });
         });
     });

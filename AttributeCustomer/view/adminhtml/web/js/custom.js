@@ -12,7 +12,10 @@ require([
         };
     var selector = '[name="customer[company_type]"]';
     waitForEl(selector, function() {
-        $('[data-index="organization_name"]').hide();
+      	if ($('[name="customer[company_type]"]').val() == 3)
+      		$('[data-index="organization_name"]').show();
+      	else $('[data-index="organization_name"]').hide();
+		  
         $('[name="customer[company_type]"]').change(function() {
             if($(this).val() == 3){
                 $('[data-index="organization_name"]').show();

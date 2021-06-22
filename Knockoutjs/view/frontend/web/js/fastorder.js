@@ -166,7 +166,7 @@ function (ko, $, Component, urlBuilder, storage, customerData, priceUtils) {
             ).done(
                 function (response, status) {
                     if (status == 'success') {
-                        alert('add cart success');
+                        alert('Add to cart successfully!');
                         // location.reload();
                         self.productList([]);
                         self.result_search([]);
@@ -175,7 +175,7 @@ function (ko, $, Component, urlBuilder, storage, customerData, priceUtils) {
                     }
                 }
             ).fail(function () {
-                alert('add cart fail');
+                alert('Add to cart fail!');
             });
         }
     }

@@ -18,7 +18,7 @@ class SaveDelivery implements \Magento\Framework\Event\ObserverInterface
     public function execute(\Magento\Framework\Event\Observer $observer)
     {
         $order = $observer->getEvent()->getOrder();
-        $quoteId = $order->getQuoteId();    
+        $quoteId = $order->getQuoteId();
         $quote = $this->_quoteFactory->create()->load($quoteId);
         $date = $quote->getDeliveryDate();
         $order->setData('delivery_date',  $quote->getDeliveryDate());

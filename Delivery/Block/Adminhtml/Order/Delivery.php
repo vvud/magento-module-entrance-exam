@@ -1,51 +1,72 @@
 <?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
 namespace AHT\Delivery\Block\Adminhtml\Order;
 
-class Delivery extends \Magento\Framework\View\Element\Template
+/**
+ * Edit order address form container block
+ *
+ * @api
+ * @since 100.0.2
+ */
+class Delivery extends \Magento\Backend\Block\Widget\Form\Container
 {
-    const ADMIN_RESOURCE = 'Magento_Sales::actions_edit';
     /**
-     * Address form template
+     * Core registry
      *
-     * @var string
+     * @var \Magento\Framework\Registry
      */
+    protected $_coreRegistry = null;
+
     /**
-     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \Magento\Backend\Block\Widget\Context $context
+     * @param \Magento\Framework\Registry $registry
      * @param array $data
      */
-    protected $_checkoutSession;
-
-    /**
-     * @param \Magento\Sales\Model\Order
-     */
-    private $_order;
-
     public function __construct(
-        \Magento\Checkout\Model\Session $checkoutSession,
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Sales\Model\Order $order,
+        \Magento\Backend\Block\Widget\Context $context,
+        \Magento\Framework\Registry $registry,
         array $data = []
     ) {
-        $this->_order = $order;
-        $this->_checkoutSession = $checkoutSession;
+        $this->_coreRegistry = $registry;
         parent::__construct($context, $data);
     }
-    public function getOrder()
+
+    /**
+     * Constructor
+     *
+     * @return void
+     */
+    protected function _construct()
     {
-        $id = $this->getOrderId();
-        $order = $this->_order->load($id);
-        return $order;
+        $this->_controller = 'adminhtml_order';
+        $this->_mode = 'delivery';
+        $this->_blockGroup = 'AHT_Delivery';
+        parent::_construct();
+        $this->buttonList->update('save', 'label', __('Save Order Delivery'));
+        $this->buttonList->remove('delete');
     }
-    public function getOrderId()
+
+    /**
+     * Retrieve text for header element depending on loaded page
+     *
+     * @return \Magento\Framework\Phrase
+     */
+    public function getHeaderText()
     {
-        return $this->getRequest()->getParam('order_id');
+        return __('Delivery Information');
     }
-    public function getEditLink($label = '')
+
+    /**
+     * Back button url getter
+     *
+     * @return string
+     */
+    public function getBackUrl()
     {
-        if (empty($label)) {
-            $label = __('Edit');
-        }
-        $url = $this->getUrl('sales/order/delivery', ['id' => $this->getOrderId()]);
-        return '<a href="' . $this->escapeUrl($url) . '">' . $this->escapeHtml($label) . '</a>';
+        $address = $this->_coreRegistry->registry('order_delivery');
+        return $this->getUrl('sales/*/view', ['order_id' => $delivery ? $delivery->getOrder()->getId() : null]);
     }
 }

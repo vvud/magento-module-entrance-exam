@@ -70,7 +70,6 @@ define([
             var note = document.getElementById('note').value;
             var quoteId = quote.getQuoteId();
             var serviceUrl = urlBuilder.build('delivery/index/index');
-            // var serviceUrl = urlBuilder.build('delivery/index/savequote');
             stepNavigator.next();
 
             return storage.post(
