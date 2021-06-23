@@ -57,7 +57,7 @@ This Modal contain: a login window, e.g: (notice: you can style it yourself)
 <img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Fetest/3.png" alt="Button 2">
 
 ### *Button 1*
-<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Fetest/3.png" alt="Button 3">
+<img src="https://github.com/vtearit/magento-module-entrance-exam/blob/main/Images/Fetest/4.png" alt="Button 3">
 
 
 
